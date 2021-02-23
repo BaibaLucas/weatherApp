@@ -1,0 +1,29 @@
+/* --- Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;700&display=swap');
+
+/* --- Variables --- */
+
+
+/* -- Breakpoints -- */
+
+
+/* --- components styles --- */
+// @import '../components/App/app';
+@import '../components/Weather/weather';
+@import '../components/App/app';
+
+
+body {
+  font-family: 'Sora', sans-serif;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.76);
+}
+
+h1 {
+  font-family: 'Sora', sans-serif;
+  font-size: 2rem;
+}
+
+input {
+  font-family: 'Sora', sans-serif;
+}
