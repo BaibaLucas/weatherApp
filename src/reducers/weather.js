@@ -35,7 +35,13 @@ const reducer = (oldState = initialState, action = {}) => {
         ...oldState,
         locationData: action.location
       }
-    
+      
+    case 'CHANGE_LOADER':
+      return {
+        ...oldState,
+        isLoaded: false,
+      }
+      
     default:
       return {
         ...oldState,

@@ -21,6 +21,7 @@ const mapDispatchToProps = (dispatch) => ({
 
   getWeather: () => {
     dispatch({type: 'GET_WEATHER'});
+    dispatch({type: 'CHANGE_LOADER'});
   },
 
   getLocation: () => {

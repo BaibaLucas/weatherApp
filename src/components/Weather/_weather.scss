@@ -2,6 +2,9 @@
   background-color: #6c64fb;
   height: 100vh;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items:center;
   &_search {
     display: flex;
     justify-content: flex-end;
@@ -10,6 +13,7 @@
     margin: 0.5rem;
     right: -195px;
     transition: 2000ms;
+    top: 0;
     &_open {
       right: 10px;
       transition: 2000ms;
@@ -25,6 +29,7 @@
         border-radius: 10px;
         margin-right: 0.5rem;
         padding-left: 0.5rem;
+        font-weight: bold;
       }
     }
   }

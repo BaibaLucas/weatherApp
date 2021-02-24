@@ -5,6 +5,7 @@ import { FaSearchLocation } from 'react-icons/fa';
 
 // Local import
 import prettyIcons from '../../utils/prettyIcons';
+import Loader from '../Loader';
 
 
 const Weather = ({ cityValue, handleChange, getWeather, weather, isLoaded, getLocation }) => {
@@ -16,8 +17,6 @@ const Weather = ({ cityValue, handleChange, getWeather, weather, isLoaded, getL
   },[]);
 
   const [isOpen, setIsOpen] = useState(false);
-
-
 
   const onChange = (event) => {
     handleChange(event.target.value);
@@ -39,19 +38,24 @@ const Weather = ({ cityValue, handleChange, getWeather, weather, isLoaded, getL
         <form
           className='weather_search_form'
           onSubmit={onSubmitForm}
+          autoComplete='off'
           >
             <input
+              autoComplete='off'
               className='weather_search_form_input'
               name='city'
-              type='text'
+              type='search'
               value={cityValue}
               onChange={onChange}
             />
-            <IoIosSend size={20}/>
+            <IoIosSend size={20} onClick={onSubmitForm}/>
         </form>
       </div>
         
 
+      {!isLoaded && (
+        <Loader />
+      )}
 
       {isLoaded && (
         <>
