@@ -13,7 +13,7 @@ const api = (store) => (next) => (action) => {
 
     case 'GET_WEATHER': {
       const { weather : { city } } = store.getState();
-      axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=FR&appid=${weatherKey}`)
+      axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&lang=FR&appid=${weatherKey}`)
       .then((response) => {
         if (response.status !== 200) {
           throw response.error;
@@ -37,7 +37,7 @@ const api = (store) => (next) => (action) => {
           console.log(response.data);
             axios({
               method: 'get',
-              url: `https://api.openweathermap.org/data/2.5/weather?q=${response.data.city}&units=metric&lang=FR&appid=${weatherKey}`,
+              url: `https://api.openweathermap.org/data/2.5/forecast?q=${response.data.city}&units=metric&lang=FR&appid=${weatherKey}`,
               headers: {
                 'Content-Type': 'application/json',
               }
