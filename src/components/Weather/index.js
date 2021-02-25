@@ -1,5 +1,5 @@
 // Package import
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { IoIosSend } from 'react-icons/io';
 import { FaSearchLocation } from 'react-icons/fa';
 
@@ -17,6 +17,7 @@ const Weather = ({ cityValue, handleChange, getWeather, weather, isLoaded, getL
   },[]);
 
   const [isOpen, setIsOpen] = useState(false);
+  const searchInput = useRef(null);
 
   const onChange = (event) => {
     handleChange(event.target.value);
@@ -28,12 +29,17 @@ const Weather = ({ cityValue, handleChange, getWeather, weather, isLoaded, getL
     getWeather();
   }
 
+  const onClick = (event) => {
+    setIsOpen(!isOpen);
+    searchInput.current.focus();
+  }
+
   return (
     <div className='weather'>
 
       <div className={isOpen ? 'weather_search weather_search_open' : 'weather_search'}>
         <FaSearchLocation size={30}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={onClick}
         />  
         <form
           className='weather_search_form'
@@ -42,6 +48,8 @@ const Weather = ({ cityValue, handleChange, getWeather, weather, isLoaded, getL
           >
             <input
               autoComplete='off'
+              autoFocus={true}
+              ref={searchInput}
               className='weather_search_form_input'
               name='city'
               type='search'
@@ -60,35 +68,35 @@ const Weather = ({ cityValue, handleChange, getWeather, weather, isLoaded, getL
         <>
         <div className='weather_container'>
           <div className='weather_container_city'>{weather.city.name} / {weather.city.country}</div>
-          <div className='weather_container_logo'>{prettyIcons(weather.list[0].weather[0].icon, 300)}</div>
+          <div className='weather_container_logo'>{prettyIcons(weather.list[0].weather[0].icon, 250)}</div>
           <div className='weather_container_temp'>{Math.round(weather.list[0].main.temp)} °C</div>
           <div className='weather_container_description'>{weather.list[0].weather[0].description}</div>
         
         <div className='weather_container_forecast'>
-          <div className='weather_container_forecast_container'>
-            <div className='weather_container_forecast_container_title'>DAY 1</div>
-            <div className='weather_container_forecast_container_logo'>{prettyIcons(weather.list[8].weather[0].icon, 40)}</div>
-            <div className='weather_container_forecast_container_temp'>{Math.round(weather.list[8].main.temp)} °C</div>
+          <div className='weather_container_forecast_box'>
+            <div className='weather_container_forecast_box_title'>DAY 1</div>
+            <div className='weather_container_forecast_box_logo'>{prettyIcons(weather.list[8].weather[0].icon, 40)}</div>
+            <div className='weather_container_forecast_box_temp'>{Math.round(weather.list[8].main.temp)} °C</div>
           </div>
-          <div className='weather_container_forecast_container'>
-            <div className='weather_container_forecast_container_title'>DAY 2</div>
-            <div className='weather_container_forecast_container_logo'>{prettyIcons(weather.list[16].weather[0].icon, 40)}</div>
-            <div className='weather_container_forecast_container_temp'>{Math.round(weather.list[16].main.temp)} °C</div>
+          <div className='weather_container_forecast_box'>
+            <div className='weather_container_forecast_box_title'>DAY 2</div>
+            <div className='weather_container_forecast_box_logo'>{prettyIcons(weather.list[16].weather[0].icon, 40)}</div>
+            <div className='weather_container_forecast_box_temp'>{Math.round(weather.list[16].main.temp)} °C</div>
           </div>
-          <div className='weather_container_forecast_container'>
-            <div className='weather_container_forecast_container_title'>DAY 3</div>
-            <div className='weather_container_forecast_container_logo'>{prettyIcons(weather.list[24].weather[0].icon, 40)}</div>
-            <div className='weather_container_forecast_container_temp'>{Math.round(weather.list[24].main.temp)} °C</div>
+          <div className='weather_container_forecast_box'>
+            <div className='weather_container_forecast_box_title'>DAY 3</div>
+            <div className='weather_container_forecast_box_logo'>{prettyIcons(weather.list[24].weather[0].icon, 40)}</div>
+            <div className='weather_container_forecast_box_temp'>{Math.round(weather.list[24].main.temp)} °C</div>
           </div>
-          <div className='weather_container_forecast_container'>
-            <div className='weather_container_forecast_container_title'>DAY 4</div>
-            <div className='weather_container_forecast_container_logo'>{prettyIcons(weather.list[32].weather[0].icon, 40)}</div>
-            <div className='weather_container_forecast_container_temp'>{Math.round(weather.list[32].main.temp)} °C</div>
+          <div className='weather_container_forecast_box'>
+            <div className='weather_container_forecast_box_title'>DAY 4</div>
+            <div className='weather_container_forecast_box_logo'>{prettyIcons(weather.list[32].weather[0].icon, 40)}</div>
+            <div className='weather_container_forecast_box_temp'>{Math.round(weather.list[32].main.temp)} °C</div>
           </div>
-          <div className='weather_container_forecast_container'>
-            <div className='weather_container_forecast_container_title'>DAY 5</div>
-            <div className='weather_container_forecast_container_logo'>{prettyIcons(weather.list[32].weather[0].icon, 40)}</div>
-            <div className='weather_container_forecast_container_temp'>{Math.round(weather.list[32].main.temp)} °C</div>
+          <div className='weather_container_forecast_box'>
+            <div className='weather_container_forecast_box_title'>DAY 5</div>
+            <div className='weather_container_forecast_box_logo'>{prettyIcons(weather.list[32].weather[0].icon, 40)}</div>
+            <div className='weather_container_forecast_box_temp'>{Math.round(weather.list[32].main.temp)} °C</div>
           </div>
         </div>
 
