@@ -1,12 +1,12 @@
 /** Date NOW with momentJS */
-import moment from 'moment';
+import moment from 'moment-timezone';
 import 'moment/locale/fr';
 
 
-export const today = () => {
-  moment.locale('fr');
-  return moment().format('llll');
-}
+// export const today = () => {
+//   moment.locale('fr');
+//   return moment().format('llll');
+// }
 
 export const foreCastDay = (number) => {
   moment.locale('fr');
@@ -15,3 +15,9 @@ export const foreCastDay = (number) => {
   let forecastDAY = moment(forecastDate).format('ddd');
   return forecastDAY;
 }
+
+export const cityTime = (number) => {
+  return moment().utcOffset(number).format('llll');
+}
+
+// 

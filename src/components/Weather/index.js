@@ -6,12 +6,13 @@ import { FaSearchLocation } from 'react-icons/fa';
 // Local import
 import prettyIcons from '../../utils/prettyIcons';
 import Loader from '../Loader';
-import { today, foreCastDay } from '../../utils/forecastDate';
+import { today, foreCastDay, cityTime } from '../../utils/forecastDate';
+
 
 
 const Weather = ({ cityValue, handleChange, getWeather, weather, isLoaded, getLocation }) => {
 
-  console.log(foreCastDay());
+  // console.log(cityTime());
 
 
   useEffect(() => {
@@ -63,9 +64,17 @@ const Weather = ({ cityValue, handleChange, getWeather, weather, isLoaded, getL
         <>
         <div className='weather_container'>
           <div className='weather_container_city'>{weather.city.name} / {weather.city.country}</div>
-          <div className='weather_container_date'>{today()}</div>
-          <div className='weather_container_logo'>{prettyIcons(weather.list[0].weather[0].icon, 300)}</div>
-          <div className='weather_container_temp'>{Math.round(weather.list[0].main.temp)} °C</div>
+          <div className='weather_container_date'>{cityTime(weather.city.timezone / 60)}</div>
+          <div className='weather_container_logo'>{prettyIcons(weather.list[0].weather[0].icon, 250)}</div>
+          <div className='weather_container_temp'>
+            <div className='weather_container_temp_moy'>
+            {Math.round(weather.list[0].main.temp)} °C
+            </div>
+            <div className='weather_container_temp_box'>
+              <div className='weather_container_temp_box_min'>min {Math.round(weather.list[0].main.temp_min)} °C</div>
+              <div className='weather_container_temp_box_max'>max {Math.round(weather.list[0].main.temp_max)} °C</div>
+              </div>
+          </div>
           <div className='weather_container_description'>{weather.list[0].weather[0].description}</div>
         
         <div className='weather_container_forecast'>
