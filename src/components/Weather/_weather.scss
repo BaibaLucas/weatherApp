@@ -47,39 +47,51 @@
   margin: 1rem;
 
   &_city {
-    background-color:rgba(255, 255, 255, 0.3);
+    background-color:#4f48da;
+    color: rgba(255, 255, 255, 0.76);
     font-size: 2rem;
     width: 100%;
     text-align: center;
+    border-radius: 15px;
+    padding: 1rem;
   }
   &_temp {
-    background-color:rgba(255, 255, 255, 0.3);
+    background-color:#4f48da;
+    padding: 1rem;
     font-size: 4rem;
     text-align: center;
-    border: white solid 1px;
+    border-radius: 15px;
   }
   &_logo {
+    background-color:#4f48da;
     text-align: center;
-    border: white solid 1px;
+    border-radius: 15px;
   }
   &_description {
+    background-color:#4f48da;
     font-size: 2rem;
-    border: white solid 1px;
+    border-radius: 15px;
+    padding: 1rem;
   }
 
   &_forecast {
+    border-radius: 15px;
+    // background-color:#4f48da;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     height: 20%;
     width: 100%;
     &_container {
-      width: 20%;
-      border: white solid 1px;
+      border-radius: 15px;
+      width: 25%;
+      height: 100%;
+      background-color:#4f48da;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      margin: 0.2rem;
     }
   }
   

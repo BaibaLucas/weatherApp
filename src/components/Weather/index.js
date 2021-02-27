@@ -6,9 +6,12 @@ import { FaSearchLocation } from 'react-icons/fa';
 // Local import
 import prettyIcons from '../../utils/prettyIcons';
 import Loader from '../Loader';
+import { today, foreCastDay } from '../../utils/forecastDate';
 
 
 const Weather = ({ cityValue, handleChange, getWeather, weather, isLoaded, getLocation }) => {
+
+  console.log(foreCastDay());
 
 
   useEffect(() => {
@@ -60,33 +63,34 @@ const Weather = ({ cityValue, handleChange, getWeather, weather, isLoaded, getL
         <>
         <div className='weather_container'>
           <div className='weather_container_city'>{weather.city.name} / {weather.city.country}</div>
+          <div className='weather_container_date'>{today()}</div>
           <div className='weather_container_logo'>{prettyIcons(weather.list[0].weather[0].icon, 300)}</div>
           <div className='weather_container_temp'>{Math.round(weather.list[0].main.temp)} °C</div>
           <div className='weather_container_description'>{weather.list[0].weather[0].description}</div>
         
         <div className='weather_container_forecast'>
           <div className='weather_container_forecast_container'>
-            <div className='weather_container_forecast_container_title'>DAY 1</div>
+            <div className='weather_container_forecast_container_title'>{foreCastDay(1)}</div>
             <div className='weather_container_forecast_container_logo'>{prettyIcons(weather.list[8].weather[0].icon, 40)}</div>
             <div className='weather_container_forecast_container_temp'>{Math.round(weather.list[8].main.temp)} °C</div>
           </div>
           <div className='weather_container_forecast_container'>
-            <div className='weather_container_forecast_container_title'>DAY 2</div>
+            <div className='weather_container_forecast_container_title'>{foreCastDay(2)}</div>
             <div className='weather_container_forecast_container_logo'>{prettyIcons(weather.list[16].weather[0].icon, 40)}</div>
             <div className='weather_container_forecast_container_temp'>{Math.round(weather.list[16].main.temp)} °C</div>
           </div>
           <div className='weather_container_forecast_container'>
-            <div className='weather_container_forecast_container_title'>DAY 3</div>
+            <div className='weather_container_forecast_container_title'>{foreCastDay(3)}</div>
             <div className='weather_container_forecast_container_logo'>{prettyIcons(weather.list[24].weather[0].icon, 40)}</div>
             <div className='weather_container_forecast_container_temp'>{Math.round(weather.list[24].main.temp)} °C</div>
           </div>
           <div className='weather_container_forecast_container'>
-            <div className='weather_container_forecast_container_title'>DAY 4</div>
+            <div className='weather_container_forecast_container_title'>{foreCastDay(4)}</div>
             <div className='weather_container_forecast_container_logo'>{prettyIcons(weather.list[32].weather[0].icon, 40)}</div>
             <div className='weather_container_forecast_container_temp'>{Math.round(weather.list[32].main.temp)} °C</div>
           </div>
           <div className='weather_container_forecast_container'>
-            <div className='weather_container_forecast_container_title'>DAY 5</div>
+            <div className='weather_container_forecast_container_title'>{foreCastDay(5)}</div>
             <div className='weather_container_forecast_container_logo'>{prettyIcons(weather.list[32].weather[0].icon, 40)}</div>
             <div className='weather_container_forecast_container_temp'>{Math.round(weather.list[32].main.temp)} °C</div>
           </div>
