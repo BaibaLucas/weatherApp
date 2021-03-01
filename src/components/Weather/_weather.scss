@@ -36,6 +36,44 @@
       }
     }
   }
+  &_settings {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    margin: 0.5rem;
+    left: -82px;
+    transition: 1500ms;
+    top: 0px;
+    &_open {
+      left: 10px;
+      transition: 2000ms;
+    }
+    &_options {
+      display: flex;
+      margin-right: 1rem;
+      text-align: center;
+      &_logo {
+        background-color: #4f48da;
+        padding: 0 0.3rem 0 0.3rem;
+        border-radius: 10px;
+        box-shadow: 0 7px 30px -10px rgba(150,170,180,0.5);
+        transition: transform 2s;
+        color:rgba(255, 255, 255, 0.76);
+        border: none;
+        &:hover {
+          background-color:rgba(255, 255, 255, 0.76);
+          color:#4f48da;
+          border-color:#4f48da;
+          border: none;
+          
+        }
+      }
+    }
+  }
+}
+.celsius {
+  margin-right: 0.5rem;
 }
 
 .weather_container {

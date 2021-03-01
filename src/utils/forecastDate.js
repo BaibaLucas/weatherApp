@@ -8,8 +8,8 @@ import 'moment/locale/fr';
 //   return moment().format('llll');
 // }
 
-export const foreCastDay = (number) => {
-  moment.locale('fr');
+export const foreCastDay = (number, lang) => {
+  moment.locale(lang);
   let dayNow = moment().day();
   let forecastDate = moment().isoWeekday(dayNow + number);
   let forecastDAY = moment(forecastDate).format('ddd');

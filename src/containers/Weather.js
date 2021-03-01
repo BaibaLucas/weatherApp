@@ -3,14 +3,15 @@ import { connect } from 'react-redux';
 
 // local import
 import Weather from '../components/Weather';
-import { changeCityField } from '../store/action';
+import { changeCityField, changeMeasureField } from '../store/action';
 
 const mapStateToProps = (state) => ({
 
-  cityValue: state.weather.city,
+  cityValue: state.weather.searchCity,
   weather: state.weather.weatherData,
   isLoaded: state.weather.isLoaded,
-
+  lang: state.weather.lang,
+  measure: state.weather.measure,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -26,7 +27,12 @@ const mapDispatchToProps = (dispatch) => ({
 
   getLocation: () => {
     dispatch({type: 'GET_LOCATION'});
-  }
+  },
+
+  changeMeasure: (value) => {
+    dispatch(changeMeasureField(value));
+    dispatch({type: 'GET_WEATHER'});
+  },
 
 });
 

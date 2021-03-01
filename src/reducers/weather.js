@@ -2,14 +2,17 @@
 import { 
   CHANGE_CITY_FIELD,
   GET_LOCATION_SUCCESS,
-  GET_WEATHER_SUCCESS } from '../store/action';
+  GET_WEATHER_SUCCESS,
+  CHANGE_MEASURE_FIELD } from '../store/action';
 
 
 // InitialState informations about weather
 const initialState = {
-  city: '',
+  actualCity: '',
+  searchCity: '',
   locationData: {},
   weatherData: {},
+  measure: 'metric',
   isLoaded: false,
 };
 
@@ -19,13 +22,14 @@ const reducer = (oldState = initialState, action = {}) => {
     case CHANGE_CITY_FIELD:
       return {
         ...oldState,
-        city: action.value,
+        searchCity: action.value,
+        actualCity: action.value,
       }
 
     case GET_WEATHER_SUCCESS:
       return {
         ...oldState,
-        city: '',
+        searchCity: '',
         weatherData: action.weather,
         isLoaded: true,
       }
@@ -33,13 +37,20 @@ const reducer = (oldState = initialState, action = {}) => {
     case GET_LOCATION_SUCCESS:
       return {
         ...oldState,
-        locationData: action.location
+        locationData: action.location,
+        actualCity: action.location.city,
       }
       
     case 'CHANGE_LOADER':
       return {
         ...oldState,
         isLoaded: false,
+      }
+
+    case CHANGE_MEASURE_FIELD:
+      return {
+        ...oldState,
+        measure: action.value,
       }
       
     default:
