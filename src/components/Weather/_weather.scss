@@ -5,35 +5,35 @@
   display: flex;
   justify-content: center;
   align-items:center;
-  &_search {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    position: fixed;
-    margin: 0.5rem;
-    right: -195px;
-    transition: 2000ms;
-    top: 0;
-    &_open {
-      right: 10px;
+    &_search {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      position: fixed;
+      margin: 0.5rem;
+      right: -195px;
       transition: 2000ms;
-    }
+      top: 0;
+        &_open {
+          right: 10px;
+          transition: 2000ms;
+        }
     &_form {
       display: flex;
       margin-left: 1rem;
       text-align: center;
-      &_input {
-        background-color:rgba(255, 255, 255, 0.76);
-        color: #6c64fb;
-        border: none;
-        border-radius: 10px;
-        margin-right: 0.5rem;
-        padding-left: 0.5rem;
-        font-weight: bold;
-        ::placeholder {
+        &_input {
+          background-color:rgba(255, 255, 255, 0.76);
           color: #6c64fb;
+          border: none;
+          border-radius: 10px;
+          margin-right: 0.5rem;
+          padding-left: 0.5rem;
+          font-weight: bold;
+          &::placeholder {
+            color: #6c64fb;
+          }
         }
-      }
     }
   }
   &_settings {
@@ -79,9 +79,10 @@
 .weather_container {
   display:flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   height: 90%;
+  width: 100%;
   margin: 1rem;
   &_city {
     background-color:#4f48da;
