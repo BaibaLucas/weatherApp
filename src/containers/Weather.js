@@ -6,7 +6,6 @@ import Weather from '../components/Weather';
 import { changeCityField, changeMeasureField } from '../store/action';
 
 const mapStateToProps = (state) => ({
-
   cityValue: state.weather.searchCity,
   weather: state.weather.weatherData,
   isLoaded: state.weather.isLoaded,

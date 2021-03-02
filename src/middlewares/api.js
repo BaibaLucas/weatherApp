@@ -7,7 +7,6 @@ import { getLocationSuccess, getWeatherSuccess } from '../store/action';
 
 
 // Request
-
 const api = (store) => (next) => (action) => {
   switch (action.type) {
 

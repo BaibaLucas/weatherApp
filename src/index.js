@@ -14,9 +14,7 @@ const rootReactElement = (
     <App />
   </StoreProvider>
 );
-
 const target = document.getElementById('root');
-
 render(rootReactElement, target);
 
 

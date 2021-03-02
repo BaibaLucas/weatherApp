@@ -1,5 +1,6 @@
 // Package import
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { IoIosSend } from 'react-icons/io';
 import { FaSearchLocation } from 'react-icons/fa';
 import { MdSettings } from 'react-icons/md';
@@ -168,4 +169,63 @@ const Weather = ({ cityValue, handleChange, getWeather, weather, isLoaded, getL
   );
 }
 
+Weather.propTypes = {
+  cityValue: PropTypes.string,
+  handleChange: PropTypes.func.isRequired,
+  getWeather: PropTypes.func.isRequired,
+  getLocation: PropTypes.func.isRequired,
+  changeMeasure: PropTypes.func.isRequired,
+  isLoaded: PropTypes.bool.isRequired,
+  weather: PropTypes.shape({
+    city: PropTypes.shape({
+      coord: PropTypes.shape({
+        lat: PropTypes.number.isRequired,
+        lon: PropTypes.number.isRequired,
+      }),
+      country: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      population: PropTypes.number.isRequired,
+      sunrise: PropTypes.number.isRequired,
+      sunset: PropTypes.number.isRequired,
+      timezone: PropTypes.number.isRequired,
+    }),
+    cnt: PropTypes.number,
+    cod: PropTypes.string,
+    list: PropTypes.arrayOf(PropTypes.shape({
+      dt: PropTypes.number.isRequired,
+      dt_txt: PropTypes.string.isRequired,
+      pop: PropTypes.number.isRequired,
+      visibility: PropTypes.number.isRequired,
+      clouds: PropTypes.shape({
+        all: PropTypes.number.isRequired,
+      }),
+      main: PropTypes.shape({
+        feels_like: PropTypes.number.isRequired,
+        grnd_level: PropTypes.number.isRequired,
+        humidity: PropTypes.number.isRequired,
+        pressure: PropTypes.number.isRequired,
+        sea_level: PropTypes.number.isRequired,
+        temp: PropTypes.number.isRequired,
+        temp_kf: PropTypes.number.isRequired,
+        temp_max: PropTypes.number.isRequired,
+        temp_min: PropTypes.number.isRequired,
+      }),
+      sys: PropTypes.shape({
+        pod: PropTypes.string.isRequired,
+      }),
+      weather: PropTypes.arrayOf(PropTypes.shape({
+        description: PropTypes.string.isRequired,
+        icon: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
+        main: PropTypes.string.isRequired,
+      })),
+      wind: PropTypes.shape({
+        deg: PropTypes.number.isRequired,
+        speed: PropTypes.number.isRequired,
+      }),
+    })
+    )
+  })
+}
 export default Weather;
