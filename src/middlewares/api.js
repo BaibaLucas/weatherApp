@@ -19,7 +19,6 @@ const api = (store) => (next) => (action) => {
           throw response.error;
         } else {
           store.dispatch(getWeatherSuccess(response.data));
-          console.log(response.data);
         }
       }).catch((error) => {
         console.log('Oups !', error);
@@ -35,7 +34,6 @@ const api = (store) => (next) => (action) => {
           throw response.error;
         } else {
           store.dispatch(getLocationSuccess(response.data));
-          console.log(response.data);
             axios({
               method: 'get',
               url: `https://api.openweathermap.org/data/2.5/forecast?q=${response.data.city}&units=${measure}&lang=FR&appid=${weatherKey}`,
@@ -47,7 +45,6 @@ const api = (store) => (next) => (action) => {
                 throw response.error;
               } else {
                 store.dispatch(getWeatherSuccess(response.data));
-                console.log(response.data);
               }
             });
           }

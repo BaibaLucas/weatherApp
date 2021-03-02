@@ -3,7 +3,8 @@ import {
   CHANGE_CITY_FIELD,
   GET_LOCATION_SUCCESS,
   GET_WEATHER_SUCCESS,
-  CHANGE_MEASURE_FIELD } from '../store/action';
+  CHANGE_MEASURE_FIELD
+ } from '../store/action';
 
 
 // InitialState informations about weather
